@@ -9,7 +9,7 @@ The engine is UCI compatible. On the "go ..." command, negaMax is called (I will
 Quiescence is a massive improvement in playing strength for chess engines. It keeps analyzing the position until it "calms down", meaning that no more captures can be made from either side. Without this, the engine can miss important tactics.
 When quiescence finishes, it returns the best evaluation found.
 
-Both of these functions use a function to generate pseudo legal moves, meaning it doesn't check if the king is left in check and a make and unmake move function. To filter out illegal moves, the engige first makes the move, and if the king is in check, it doesn't analyze it and unmakes it.
+Both of these algorithms use a function to generate pseudo legal moves, meaning it doesn't check if the king is left in check and a make and unmake move function. To filter out illegal moves, the engine first makes the move, and if the king is in check, it doesn't analyze it and unmakes it.
 
 This keeps happening until the engine analyzes all the moves for both sides on a given depth. Then, it returns the root move that produced the best score, while playing the best moves for both sides, and the score (evaluation) itself. Then it sends that move to the GUI. NegaMax also implements pruning; if a move is good enough to refute the opponent's previous move, it stops searching remaining moves, since the opponent won't allow this position anyway. This is called alpha beta pruning and it saves a lot of time.
 
